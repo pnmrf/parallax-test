@@ -488,8 +488,7 @@
 </div>
 
 <!-- TF.js + BlazeFace -->
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core@4.20.0/dist/tf-core.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl@4.20.0/dist/tf-backend-webgl.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.8.6/dist/tf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/blazeface@0.0.7/dist/blazeface.min.js"></script>
 
 <script>
@@ -995,6 +994,10 @@ async function startCam() {
     console.warn('Camera:', err);
     setMode('mouse');
     setDot('error', 'ошибка');
+    setLoadLabel('Ошибка камеры: ' + (err.message || err));
+    $loading.style.display = 'flex';
+    $loading.classList.remove('out');
+    setTimeout(hideLoading, 3500);
   }
 }
 
